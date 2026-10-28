@@ -2,6 +2,8 @@ name: Publish Docker image
 
 on:
   push:
+    branches:
+      - master
     tags:
       - "RELEASE.*"
   workflow_dispatch:
@@ -70,6 +72,7 @@ jobs:
           tags: |
             type=raw,value=${{ steps.vars.outputs.release }}
             type=raw,value=latest,enable=${{ github.ref_type == 'tag' }}
+            type=ref,event=branch
             type=sha
 
       - name: Build and push

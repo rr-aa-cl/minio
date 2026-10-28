@@ -1,12 +1,7 @@
 name: VulnCheck
 on:
-  pull_request:
-    branches:
-      - master
-
-  push:
-    branches:
-      - master
+  # Automatic runs disabled; trigger manually from the Actions tab.
+  workflow_dispatch:
 
 permissions:
   contents: read # to fetch code (actions/checkout)
